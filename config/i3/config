@@ -55,7 +55,7 @@ bindsym $mod+Return exec tabbed alacritty --embed
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -190,6 +190,26 @@ bar {
 }
 
 # Setup for Touchpad
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.25
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.25
+
+# Setup for startup
+exec --no-startup-id blueberry-tray
+
+# disable beeb sound
+exec --no-startup-id xset -b
+
+# Setup brightness control
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+
+# Setup for zoom
+for_window [instance="^zoom(\.|$)" title="^Zoom($|\s)"] floating disable, border pixel $borderpx
+for_window [instance="^zoom(\.|$)" title="^zoom"] floating enable, border none no_focus [instance="^zoom(\.|$)" title="^zoom"]
+for_window [instance="^join\?action=join" title="^Zoom($|\s)"] floating disable, border pixel $borderpx
+for_window [instance="^join\?action=join" title="^join\?action=join"] floating enable, border none no_focus [instance="^join\?action=join" title="^join\?action=join"]
+for_window [instance="^start\?action=start" title="^Zoom($|\s)"] floating disable, border pixel $borderpx
+for_window [instance="^start\?action=start" title="^start\?action=start"] floating enable, border none no_focus [instance="^start\?action=start" title="^start\?action=start"]
+
+exec_always --no-startup-id picom -b --config $HOME/.config/picom/picom.conf
