@@ -4,3 +4,6 @@
 [submodule "sway/.config/sway"]
 	path = sway/.config/sway
 	url = git@github.com:ashbir/sway-config.git
+[submodule "tmux/.config/tmux/plugins/tpm"]
+	path = tmux/.config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
