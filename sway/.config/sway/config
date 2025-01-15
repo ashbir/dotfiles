@@ -77,6 +77,11 @@ input * {
 	xkb_layout us
 }
 
+input 1386:891:Wacom_One_by_Wacom_M_Pen {
+    tool_mode pen absolute
+    map_from_region 0x0 1x0.9
+    map_to_region 0 0 1920 1080
+}
 
 ### Key bindings
 #
