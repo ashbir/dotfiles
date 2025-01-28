@@ -1,0 +1,151 @@
+#!/bin/bash
+
+ # Function to start Xwayland
+ start_xwayland() {
+     echo "Starting Xwayland..."
+     Xwayland -glamor egl -decorate :15 &   # Start Xwayland on display :1
+     XWAYLAND_PID=$!
+ }
+
+ # Function to check if the Xwayland display is ready
+ wait_for_xwayland() {
+     echo "Waiting for Xwayland to be ready..."
+     # Keep checking until we can connect to the display
+     while ! xset -display :15 -q &>/dev/null; do
+         sleep 0.5
+     done
+     echo "Xwayland is ready."
+ }
+
+ # Function to start FVWM3
+ start_fvwm3() {
+     echo "Starting FVWM3..."
+     export DISPLAY=:15  # Set the display for the FVWM3 process
+     export GDK_BACKEND=x11
+     export QT_QPA_PLATFORM=xcb
+     unset SESSION_MANAGER
+     export XDG_CURRENT_DESKTOP=gnome
+     export XDG_SESSION_TYPE=x11
+     dbus-run-session fvwm3 -d :15 &
+     FVWM3_PID=$!
+ }
+
+ # Function to check if FVWM3 is ready
+ wait_for_fvwm3() {
+     echo "Waiting for FVWM3 to be ready..."
+     while ! xprop -root -display :15 _NET_WM_NAME &>/dev/null; do
+         sleep 0.5
+     done
+     echo "FVWM3 is ready."
+ }
+
+  # Function to start the Zoom app
+ start_zoom() {
+     echo "Starting Zoom..."
+     export DISPLAY=:15  # Set the display for the FVWM3 process
+     export GDK_BACKEND=x11
+     export QT_QPA_PLATFORM=xcb
+     unset SESSION_MANAGER
+     export XDG_CURRENT_DESKTOP=gnome
+     export XDG_SESSION_TYPE=x11
+     zoom &
+     ZOOM_PID=$!
+ }
+
+ # Check if the necessary commands are available
+ if ! command -v Xwayland &> /dev/null; then
+     echo "Xwayland could not be found, please install it."
+     exit 1
+ fi
+
+ if ! command -v fvwm3 &> /dev/null; then
+     echo "FVWM3 could not be found, please install it."
+     exit 1
+ fi
+
+ if ! command -v xset &> /dev/null; then
+     echo "xset could not be found, please install it."
+     exit 1
+ fi
+
+ if ! command -v xprop &> /dev/null; then
+     echo "xprop could not be found, please install it."
+     exit 1
+ fi
+
+ if ! command -v zoom &> /dev/null; then
+     echo "Zoom could not be found, please install it."
+     exit 1
+ fi
+
+  # Function to synchronize clipboard
+ sync_clipboard() {
+     while true; do
+         # Copy from Wayland to Xwayland
+         WAYLAND_DISPLAY=wayland-1 wl-paste --primary | DISPLAY=:15 xclip -in -selection primary
+         WAYLAND_DISPLAY=wayland-1 wl-paste  | DISPLAY=:15 xclip -in -selection clipboard
+
+         # Copy from Xwayland to Wayland
+         DISPLAY=:15 xclip -out -selection primary | WAYLAND_DISPLAY=wayland-1 wl-copy --primary
+         DISPLAY=:15 xclip -out -selection clipboard | WAYLAND_DISPLAY=wayland-1 wl-copy
+         sleep 0.5
+     done
+ }
+
+  # Run clipboard sync in the background
+ start_clipboard_sync() {
+     sync_clipboard &
+     CLIPBOARD_SYNC_PID=$!
+ }
+
+  # Function to gracefully terminate applications
+ terminate_apps() {
+     if [[ -n "$ZOOM_PID" ]]; then
+        echo "Terminating Zoom..."
+        kill $ZOOM_PID 2>/dev/null
+        wait $ZOOM_PID 2>/dev/null
+     fi
+     if [[ -n "$FVWM3_PID" ]]; then
+        echo "Terminating FVWM3..."
+        pkill -P $FVWM3_PID
+        kill $FVWM3_PID 2>/dev/null
+        wait $FVWM3_PID 2>/dev/null
+     fi
+     echo "Applications terminated."
+ }
+ cleaned_up=false
+  # Function to clean up processes on exit
+ cleanup() {
+     if [ "$cleaned_up" = false ]; then
+        echo "Cleaning up..."
+        terminate_apps
+        [[ -n "$XWAYLAND_PID" ]] && kill $XWAYLAND_PID 2>/dev/null
+        cleaned_up=true
+     fi 
+    exit 0
+ }
+ # Trap SIGINT and SIGTERM to ensure cleanup runs
+ trap cleanup SIGINT SIGTERM EXIT
+
+ # Start Xwayland
+ start_xwayland
+
+ # Wait until Xwayland is ready
+ wait_for_xwayland
+
+ # Start FVWM3
+ start_fvwm3
+ # Wait until FVWM3 is ready
+ wait_for_fvwm3
+
+ # Start Zoom app
+ start_zoom
+
+ while true; do
+     if ! ps -p $XWAYLAND_PID > /dev/null; then
+         echo "Xwayland has exited. Cleaning up remaining processes."
+         cleanup
+         break
+     fi
+     sleep 1
+ done
