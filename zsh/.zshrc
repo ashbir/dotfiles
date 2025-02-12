@@ -71,6 +71,9 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 
+# Environment variables
+export PATH=$HOME/.local/bin:$PATH
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
