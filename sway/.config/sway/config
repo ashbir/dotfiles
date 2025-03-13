@@ -236,6 +236,8 @@ for_window [class="com-turbovnc-vncviewer-VncViewer"] floating enabled
 for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] floating disable
 for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] move workspace 4
 
+for_window [class="matplotlib"] floating enable
+
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
