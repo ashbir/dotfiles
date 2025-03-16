@@ -238,6 +238,8 @@ for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] move w
 
 for_window [class="matplotlib"] floating enable
 
+for_window [title="Open Folder" app_id="code"] floating enable
+
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
