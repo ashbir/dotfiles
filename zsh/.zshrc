@@ -77,3 +77,6 @@ export PATH=$HOME/.local/bin:$PATH
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Load local configuration if it exists
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
