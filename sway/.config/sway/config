@@ -232,9 +232,10 @@ for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] floating en
 for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] resize set 576 px 324 px
 for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] move position 1224 636
 
+# Turbovnc
 for_window [class="com-turbovnc-vncviewer-VncViewer"] floating enabled
 for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] floating disable
-for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] move workspace 4
+for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] fullscreen disable
 
 for_window [class="matplotlib"] floating enable
 
