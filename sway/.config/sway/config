@@ -220,6 +220,7 @@ bindsym $mod+r mode "resize"
 # Custom binkkey
 
 bindsym $mod+n exec gammastep -O 2500 &
+bindsym $mod+alt+n exec gammastep -O 1500 &
 
 bindsym $mod+shift+n exec pkill -xu "$USER" -SIGUSR1 gammastep & 
 
