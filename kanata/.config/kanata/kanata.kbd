@@ -4,7 +4,8 @@
 )
 
 (defsrc
-  caps lsft a s d f j k l ;
+  caps lsft a s d f h j k l ; spc
+  n m , .
 )
 (defvar
   tap-time 200
@@ -12,7 +13,7 @@
 )
 
 (defalias
-  caps (tap-hold $tap-time $hold-time esc lsft)
+  caps (tap-hold $tap-time $hold-time esc (layer-while-held mse))
   lsft (tap-hold $tap-time $hold-time ret lsft)
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
@@ -22,8 +23,41 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
   ; (tap-hold $tap-time $hold-time ; rmet)
+  spc (tap-hold $tap-time $hold-time spc (layer-while-held nav))
+)
+
+(defalias
+  fst (movemouse-speed 200)
+  slw (movemouse-speed 50)
+  vsl (movemouse-speed 25)
+
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  ms↑ (movemouse-up 4 4)
+  ms← (movemouse-left 4 4)
+  ms↓ (movemouse-down 4 4)
+  ms→ (movemouse-right 4 4)
+
+  ma↑ (movemouse-accel-up 1 1000 1 5)
+  ma← (movemouse-accel-left 1 1000 1 5)
+  ma↓ (movemouse-accel-down 1 1000 1 5)
+  ma→ (movemouse-accel-right 1 1000 1 5)
 )
 
 (deflayer base
-  @caps @lsft @a @s @d @f @j @k @l @;
+  @caps @lsft @a @s @d @f h @j @k @l @; @spc
+  n m , .
+)
+
+(deflayer nav
+  caps lsft @a @s @d @f left down up right ; spc
+  n m , .
+)
+
+(deflayer mse
+  caps lsft @a @s @d @f @ma← @ma↓ @ma↑ @ma→ ; spc
+  @mwl @mwd @mwu @mwr
 )

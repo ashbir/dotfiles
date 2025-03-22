@@ -70,6 +70,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias nvim-kickstart='NVIM_APPNAME=nvim-kickstart nvim'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
@@ -77,3 +78,6 @@ export PATH=$HOME/.local/bin:$PATH
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Load local configuration if it exists
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

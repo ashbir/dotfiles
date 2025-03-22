@@ -236,6 +236,17 @@ for_window [class="com-turbovnc-vncviewer-VncViewer"] floating enabled
 for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] floating disable
 for_window [title="^.*pluto.*$" class="com-turbovnc-vncviewer-VncViewer"] move workspace 4
 
+for_window [class="matplotlib"] floating enable
+
+for_window [app_id="code"] title_format " %title"
+for_window [app_id="org.mozilla.firefox"] title_format " %title"
+for_window [app_id="com.mitchellh.ghostty"] title_format " %title"
+for_window [app_id="obsidian"] title_format "󰎚 %title"
+
+# open a file dialog in floating mode
+for_window [title="Open Folder" app_id="code"] floating enable
+for_window [title="Select Document" app_id="xdg-desktop-portal-gtk"] floating enable
+
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
