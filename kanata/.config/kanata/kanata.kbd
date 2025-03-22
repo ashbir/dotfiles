@@ -4,8 +4,10 @@
 )
 
 (defsrc
+  r
   caps lsft a s d f h j k l ; spc
-  n m , .
+  v n m , .
+  ralt
 )
 (defvar
   tap-time 200
@@ -48,16 +50,22 @@
 )
 
 (deflayer base
+  r
   @caps @lsft @a @s @d @f h @j @k @l @; @spc
-  n m , .
+  v n m , .
+  ralt
 )
 
 (deflayer nav
+  r
   caps lsft @a @s @d @f left down up right ; spc
-  n m , .
+  v n m , .
+  ralt
 )
 
 (deflayer mse
-  caps lsft @a @s @d @f @ma← @ma↓ @ma↑ @ma→ ; spc
-  @mwl @mwd @mwu @mwr
+  @fst
+  caps lsft @a @s @d @slw @ms← @ms↓ @ms↑ @ms→ ; mlft
+  @vsl @mwl @mwd @mwu @mwr
+  mrgt
 )
