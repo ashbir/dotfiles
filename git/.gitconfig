@@ -2,6 +2,8 @@
 	defaultBranch = main
 [commit]
 	gpgsign = true
+[tag]
+	gpgSign = true
 [gpg]
 	format = ssh
 [gpg "ssh"]
@@ -10,9 +12,12 @@
 	name = Ashbir Aviat Fadila
 	email = fadila@ashbir.com
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZ8ayPaxZXM1PQCGuC/dspARr8jBeGSRwfKrBIB61oh
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
 [difftool]
-	prompt = true
-	prompt = false
+    prompt = false
 [diff]
     tool = nvimdiff
 [difftool "nvimdiff"]
@@ -21,3 +26,13 @@
 	pager = delta
 [merge]
 	tool = vimdiff
+[delta]
+    navigate = true
+    light = false
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = gruvbox-dark
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-style = file line-number syntax
+
