@@ -1,0 +1,23 @@
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/fadila/.ssh/allowed_signers
+[user]
+	name = Ashbir Aviat Fadila
+	email = fadila@ashbir.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGZ8ayPaxZXM1PQCGuC/dspARr8jBeGSRwfKrBIB61oh
+[difftool]
+	prompt = true
+	prompt = false
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[core]
+	pager = delta
+[merge]
+	tool = vimdiff
