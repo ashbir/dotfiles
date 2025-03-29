@@ -80,5 +80,8 @@ export PATH=$HOME/.local/bin:$PATH
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# Fix delete key
+bindkey '^[[3~' delete-char
+
 # Load local configuration if it exists
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
