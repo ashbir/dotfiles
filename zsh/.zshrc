@@ -75,6 +75,7 @@ alias nvim-kickstart='NVIM_APPNAME=nvim-kickstart nvim'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
+export NVIM_APPNAME=nvim-kickstart
 
 # Shell integrations
 eval "$(fzf --zsh)"
