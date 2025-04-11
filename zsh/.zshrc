@@ -69,9 +69,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias ll='ls -lh'
-alias vim='nvim'
-alias c='clear'
-alias nvim-kickstart='NVIM_APPNAME=nvim-kickstart nvim'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
