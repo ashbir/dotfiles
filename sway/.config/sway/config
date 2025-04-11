@@ -252,6 +252,7 @@ for_window [title="Select Document" app_id="xdg-desktop-portal-gtk"] floating en
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
+exec fcitx5 -d &
 
 seat seat0 xcursor_theme breeze_cursors 24
 seat seat0 hide_cursor 3000
