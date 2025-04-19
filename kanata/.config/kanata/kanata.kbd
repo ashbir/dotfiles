@@ -1,9 +1,11 @@
 ;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
+  concurrent-tap-hold yes
 )
 
 (defsrc
+  f11 f12
   r
   caps lsft a s d f h j k l ; spc
   v n m , .
@@ -12,6 +14,19 @@
 (defvar
   tap-time 200
   hold-time 200
+  time-out 200
+)
+
+(defalias
+  toggle_layer
+  (switch
+    ((base-layer base)) (layer-switch games) break
+    ((base-layer games)) (layer-switch base) break
+    () XX break
+  )
+)
+(defchordsv2
+  (f11 f12) @toggle_layer $time-out all-released ()
 )
 
 (defalias
@@ -50,6 +65,7 @@
 )
 
 (deflayer base
+  f11 f12
   r
   @caps @lsft @a @s @d @f h @j @k @l @; @spc
   v n m , .
@@ -57,6 +73,7 @@
 )
 
 (deflayer nav
+  f11 f12
   r
   caps lsft @a @s @d @f left down up right ; spc
   v n m , .
@@ -64,8 +81,17 @@
 )
 
 (deflayer mse
+  f11 f12
   @fst
   caps lsft @a @s @d @slw @ms← @ms↓ @ms↑ @ms→ ; mlft
   @vsl @mwl @mwd @mwu @mwr
   mrgt
+)
+
+(deflayer games
+  f11 f12
+  r
+  caps lsft a s d f h j k l ; spc
+  v n m , .
+  ralt
 )
