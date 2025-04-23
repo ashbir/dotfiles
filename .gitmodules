@@ -7,3 +7,7 @@
 [submodule "sway/.local/share/icons/dracula-icons"]
 	path = sway/.local/share/icons/dracula-icons
 	url = https://github.com/m4thewz/dracula-icons.git
+[submodule "nvim/.config/nvim-main"]
+	path = nvim/.config/nvim-main
+	url = git@github.com:ashbir/nvim-config.git
+	branch = local
