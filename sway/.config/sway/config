@@ -249,6 +249,9 @@ for_window [app_id="obsidian"] title_format "󰎚 %title"
 for_window [title="Open Folder" app_id="code"] floating enable
 for_window [title="Select Document" app_id="xdg-desktop-portal-gtk"] floating enable
 
+# Zoom
+for_window [title="zoom" class="zoom"] floating enable
+
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
