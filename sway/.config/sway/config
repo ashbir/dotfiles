@@ -226,6 +226,9 @@ bindsym $mod+shift+n exec pkill -xu "$USER" -SIGUSR1 gammastep &
 
 bindsym $mod+alt+h exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
+bindsym $mod+ctrl+h workspace prev
+bindsym $mod+ctrl+l workspace next
+
 # Windows rules
 for_window [shell="xwayland"] title_format "[X] %title"
 
