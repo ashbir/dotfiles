@@ -72,7 +72,7 @@ alias ll='ls -lh'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
-export NVIM_APPNAME=nvim-kickstart
+export NVIM_APPNAME=nvim-main
 
 # Shell integrations
 eval "$(fzf --zsh)"
