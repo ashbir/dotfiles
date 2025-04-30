@@ -235,9 +235,9 @@ bindsym $mod+shift+p exec 1password --show
 # Windows rules
 for_window [shell="xwayland"] title_format "[X] %title"
 
-for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] floating enable
+for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] floating enable, sticky on
 for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] resize set 576 px 324 px
-for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] move position 1224 636
+for_window [title="Picture-in-Picture" app_id="org.mozilla.firefox"] move position 1300 636
 
 # Turbovnc
 for_window [class="com-turbovnc-vncviewer-VncViewer"] floating enabled
