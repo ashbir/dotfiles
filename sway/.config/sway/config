@@ -245,6 +245,7 @@ for_window [class="matplotlib"] floating enable
 
 for_window [app_id="code"] title_format " %title"
 for_window [app_id="org.mozilla.firefox"] title_format " %title"
+for_window [title="^.*Private.*$" app_id="org.mozilla.firefox"] move workspace 10
 for_window [app_id="com.mitchellh.ghostty"] title_format " %title"
 for_window [app_id="obsidian"] title_format "󰎚 %title"
 
