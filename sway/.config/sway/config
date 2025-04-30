@@ -229,6 +229,9 @@ bindsym $mod+alt+h exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bindsym $mod+ctrl+h workspace prev
 bindsym $mod+ctrl+l workspace next
 
+bindsym $mod+ctrl+p exec 1password --quick-access
+bindsym $mod+shift+p exec 1password --show
+
 # Windows rules
 for_window [shell="xwayland"] title_format "[X] %title"
 
