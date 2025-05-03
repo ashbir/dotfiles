@@ -69,6 +69,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias ll='ls -lh'
+alias gs='git status'
+alias gc='git commit'
+alias gl='git log'
+alias ga='git add'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
