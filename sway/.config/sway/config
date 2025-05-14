@@ -273,6 +273,7 @@ default_floating_border pixel 2
 
 # Settings
 set $volume_step 1
+set $brightness_step 2
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
