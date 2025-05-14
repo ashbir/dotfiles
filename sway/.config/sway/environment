@@ -6,6 +6,7 @@
 #SWAY_EXTRA_ARGS="$SWAY_EXTRA_ARGS --debug"
 
 ## Set environment variables
+WLR_RENDERER=vulkan
 CLUTTER_BACKEND=wayland
 SDL_VIDEODRIVER=wayland
 GDK_BACKEND=wayland
