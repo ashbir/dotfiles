@@ -261,6 +261,12 @@ for_window [title="Select Document" app_id="xdg-desktop-portal-gtk"] floating en
 # Zoom
 for_window [title="zoom" class="zoom"] floating enable
 
+# Klayout
+for_window [title="Setup" app_id="klayout"] floating enable
+
+# Misc
+for_window [app_id="blueman-manager"] floating enable
+
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
