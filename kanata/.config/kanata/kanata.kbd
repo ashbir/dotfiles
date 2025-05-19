@@ -2,6 +2,9 @@
 (defcfg
   process-unmapped-keys yes
   concurrent-tap-hold yes
+  linux-dev-names-include (
+    "AT Translated Set 2 keyboard"
+  )
 )
 
 (defsrc
