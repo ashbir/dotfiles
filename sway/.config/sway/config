@@ -234,6 +234,11 @@ bindsym $mod+shift+p exec 1password --show
 
 bindsym $mod+o exec killall -SIGUSR1 waybar
 
+bindsym $mod+ctrl+shift+l move workspace to output right
+bindsym $mod+ctrl+shift+h move workspace to output left
+bindsym $mod+ctrl+shift+k move workspace to output up
+bindsym $mod+ctrl+shift+j move workspace to output down
+
 # Windows rules
 for_window [shell="xwayland"] title_format "[X] %title"
 
