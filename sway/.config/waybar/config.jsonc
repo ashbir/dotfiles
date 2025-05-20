@@ -22,6 +22,7 @@
         "temperature",
         "battery",
         "clock",
+        "power-profiles-daemon",
         "tray"
     ],
     // Modules configuration
