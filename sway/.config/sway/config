@@ -232,6 +232,8 @@ bindsym $mod+ctrl+l workspace next
 bindsym $mod+ctrl+p exec 1password --quick-access
 bindsym $mod+shift+p exec 1password --show
 
+bindsym $mod+o exec killall -SIGUSR1 waybar
+
 # Windows rules
 for_window [shell="xwayland"] title_format "[X] %title"
 
