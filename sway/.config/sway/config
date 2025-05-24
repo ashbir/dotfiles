@@ -271,6 +271,7 @@ for_window [app_id="com.mitchellh.ghostty"] title_format " %title"
 for_window [app_id="obsidian"] title_format "󰎚 %title"
 for_window [class="Eddie"] floating enable
 
+for_window [app_id="brave-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"] floating enable
 
 # open a file dialog in floating mode
 for_window [title="Open Folder" app_id="code"] floating enable
@@ -284,6 +285,7 @@ for_window [title="Setup" app_id="klayout"] floating enable
 
 # Misc
 for_window [app_id="blueman-manager"] floating enable
+for_window [class="Vial"] floating enable
 
 # Startup
 exec 1password --silent --ozone-platform-hint=x11 &
