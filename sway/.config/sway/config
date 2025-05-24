@@ -180,6 +180,17 @@ input 1386:891:Wacom_One_by_Wacom_M_Pen {
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+    
+    # Move your focus around
+    bindsym $mod+ctrl+alt+$left focus output left
+    bindsym $mod+ctrl+alt+$down focus output down
+    bindsym $mod+ctrl+alt+$up focus output up
+    bindsym $mod+ctrl+alt+$right focus output right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+ctrl+alt+Left focus output left
+    bindsym $mod+ctrl+alt+Down focus output down
+    bindsym $mod+ctrl+alt+Up focus output up
+    bindsym $mod+ctrl+alt+Right focus output right
 #
 # Scratchpad:
 #
