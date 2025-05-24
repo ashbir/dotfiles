@@ -69,6 +69,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias ll='ls -lh'
+alias c='clear'
 alias gs='git status'
 alias gc='git commit'
 alias gl='git log'
