@@ -272,6 +272,7 @@ for_window [app_id="obsidian"] title_format "󰎚 %title"
 for_window [class="Eddie"] floating enable
 
 for_window [app_id="brave-ophjlpahpchlmihnnnihgmmeilfjmjjc__index.html-Default"] floating enable
+for_window [title="Task Manager - Brave"] floating enable
 
 # open a file dialog in floating mode
 for_window [title="Open Folder" app_id="code"] floating enable
