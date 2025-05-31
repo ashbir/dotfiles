@@ -228,6 +228,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
+default_border pixel 2
+default_floating_border pixel 2
+
+smart_borders on
+
+gaps outer 0
+gaps inner 0
+
 # Custom binkkey
 
 bindsym $mod+n exec gammastep -O 2500 &
