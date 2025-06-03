@@ -19,7 +19,6 @@
         "pulseaudio",
         "cpu",
         "memory",
-        "temperature",
         "battery",
         "clock",
         "power-profiles-daemon",
