@@ -197,6 +197,9 @@ bar {
         status_command i3status
 }
 
+bindsym Mod1+Ctrl+$left workspace prev
+bindsym Mod1+Ctrl+$right workspace next
+
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
