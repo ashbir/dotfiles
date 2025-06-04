@@ -13,6 +13,8 @@ all: setup
 setup: $(CONFIG_NAMES)
 
 $(CONFIG_NAMES):
+	@echo "Creating common directories..."
+	@mkdir -p ~/.config ~/.local/share ~/.local/bin
 	@echo "Setting up $(@)"
 	@stow $(@)
 
