@@ -6,7 +6,10 @@ CONFIG_DIRS := $(wildcard */.)
 # Remove trailing slashes
 CONFIG_NAMES := $(patsubst %/.,%,$(CONFIG_DIRS))
 
-.PHONY: all clean setup $(CONFIG_NAMES) list help no-all-setup
+# Targets for cleaning individual configurations
+CLEAN_TARGETS := $(addprefix clean-,$(CONFIG_NAMES))
+
+.PHONY: all clean setup $(CONFIG_NAMES) list help no-all-setup $(CLEAN_TARGETS)
 
 all: no-all-setup
 
@@ -25,10 +28,15 @@ $(CONFIG_NAMES):
 	@stow $(@)
 
 clean:
-	@echo "Cleaning up all configurations"
+	@echo "Cleaning up all configurations. To clean a specific configuration, use 'make clean-<config_name>'."
 	@for dir in $(CONFIG_NAMES); do \
 		stow -D $$dir; \
 		done
+
+# Rule for cleaning a specific configuration
+$(CLEAN_TARGETS): clean-%:
+	@echo "Cleaning up $(patsubst clean-%,%,$@)"
+	@stow -D $(patsubst clean-%,%,$@)
 
 list:
 	@echo "Available configurations:"
@@ -44,5 +52,6 @@ help:
 	@echo "  setup     Alias for all."
 	@echo "  <config>  Set up a specific configuration (e.g., make nvim)"
 	@echo "  clean     Remove all configurations"
+	@echo "  clean-<config> Remove a specific configuration (e.g., make clean-nvim)"
 	@echo "  list      List available configurations"
 	@echo "  help      Show this help message"
