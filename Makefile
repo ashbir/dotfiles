@@ -6,11 +6,17 @@ CONFIG_DIRS := $(wildcard */.)
 # Remove trailing slashes
 CONFIG_NAMES := $(patsubst %/.,%,$(CONFIG_DIRS))
 
-.PHONY: all clean setup
+.PHONY: all clean setup $(CONFIG_NAMES) list help no-all-setup
 
-all: setup
+all: no-all-setup
 
-setup: $(CONFIG_NAMES)
+setup: no-all-setup
+
+no-all-setup:
+	@echo "Bulk installation via 'make all' or 'make setup' is disabled."
+	@echo "Please install configurations individually, e.g., 'make nvim'."
+	@echo "To see available configurations, run: make list"
+	@$(MAKE) list
 
 $(CONFIG_NAMES):
 	@echo "Creating common directories..."
@@ -34,8 +40,8 @@ help:
 	@echo "Usage: make [target]"
 	@echo ""
 	@echo "Targets:"
-	@echo "  all       Set up all configurations (default)"
-	@echo "  setup     Alias for all"
+	@echo "  all       Shows a message and lists available configurations. Does not install all."
+	@echo "  setup     Alias for all."
 	@echo "  <config>  Set up a specific configuration (e.g., make nvim)"
 	@echo "  clean     Remove all configurations"
 	@echo "  list      List available configurations"
