@@ -11,3 +11,6 @@
 	path = nvim/.config/nvim-main
 	url = git@github.com:ashbir/nvim-config.git
 	branch = local
+[submodule "nvim/.config/nvim-nvchad"]
+	path = nvim/.config/nvim-nvchad
+	url = git@github.com:ashbir/nvim-nvchad.git
