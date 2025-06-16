@@ -87,6 +87,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-pomodoro,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -114,6 +115,23 @@ button:hover {
 
 #clock {
     background-color: #64727D;
+}
+
+#custom-pomodoro {
+    background-color: #f1c40f;
+    color: #000000;
+}
+
+#custom-pomodoro.work {
+    background-color: #26A65B;
+}
+
+#custom-pomodoro.pause {
+    background-color: #f1c40f;
+}
+
+#custom-pomodoro.break {
+    background-color: #f53c3c;
 }
 
 #battery {
