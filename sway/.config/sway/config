@@ -253,6 +253,7 @@ bindsym $mod+alt+n exec gammastep -O 1500 &
 bindsym $mod+shift+n exec pkill -xu "$USER" -SIGUSR1 gammastep & 
 
 bindsym $mod+alt+h exec cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $mod+shift+alt+h exec cliphist wipe
 
 bindsym $mod+ctrl+h workspace prev
 bindsym $mod+ctrl+l workspace next
