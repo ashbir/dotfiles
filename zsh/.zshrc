@@ -79,7 +79,7 @@ alias ga='git add'
 
 # Environment variables
 export PATH=$HOME/.local/bin:$PATH
-export NVIM_APPNAME=nvim-main
+export NVIM_APPNAME=nvim-nvchad
 export TIMG_PIXELATION=kitty
 
 # Shell integrations
