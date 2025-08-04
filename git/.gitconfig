@@ -25,7 +25,11 @@
 [core]
 	pager = delta
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
+[mergetool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$BASE\" \"$REMOTE\" \"$MERGED\" -c 'wincmd 3l' -c 'wincmd J'"
+	trustExitCode = true
+	keepBackup = false
 [delta]
     navigate = true
     light = false
@@ -35,4 +39,3 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-style = file line-number syntax
-
