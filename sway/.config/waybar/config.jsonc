@@ -128,7 +128,7 @@
         "states": {
             // "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 25
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
