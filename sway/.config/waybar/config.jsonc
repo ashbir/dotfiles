@@ -20,7 +20,6 @@
         "memory",
         "battery",
         "clock",
-	"custom/pomodoro",
         "power-profiles-daemon",
         "tray"
     ],
@@ -204,13 +203,6 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    },
-    "custom/pomodoro": {
-    	"format": "{}",
-    	"return-type": "json",
-    	"exec": "$HOME/.local/bin/waybar-module-pomodoro",
-    	"on-click": "$HOME/.local/bin/waybar-module-pomodoro toggle",
-    	"on-click-right": "$HOME/.local/bin/waybar-module-pomodoro reset",
     },
     "ipc": true
 }
