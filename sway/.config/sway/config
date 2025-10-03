@@ -308,7 +308,8 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [class="Vial"] floating enable
 
 # Startup
-exec 1password --silent --ozone-platform-hint=x11 &
+exec 1password --silent --ozone-platform-hint=auto &
+#exec 1password --silent --ozone-platform-hint=x11 &
 exec wl-paste --watch cliphist store &
 exec fcitx5 -d &
 
